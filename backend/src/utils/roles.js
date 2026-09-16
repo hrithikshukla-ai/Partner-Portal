@@ -1,0 +1,21 @@
+// Mirrors the `roles` table codes (Section 7.1 of the BRD)
+const ROLES = {
+  SUPER_ADMIN: 'SUPER_ADMIN',
+  GLOBAL_PARTNER_MANAGER: 'GLOBAL_PARTNER_MANAGER',
+  REGIONAL_PARTNER_MANAGER: 'REGIONAL_PARTNER_MANAGER',
+  PARTNER_ADMIN: 'PARTNER_ADMIN',
+  PARTNER_SALES_USER: 'PARTNER_SALES_USER',
+  ACADEMIA_MARKETING: 'ACADEMIA_MARKETING',
+  ACADEMIA_SALES: 'ACADEMIA_SALES',
+};
+
+// Roles whose data access spans every region (no region_id filter applied)
+const GLOBAL_SCOPE_ROLES = [ROLES.SUPER_ADMIN, ROLES.GLOBAL_PARTNER_MANAGER];
+
+// Roles scoped to a single region (their users.region_id)
+const REGION_SCOPE_ROLES = [ROLES.REGIONAL_PARTNER_MANAGER, ROLES.ACADEMIA_MARKETING];
+
+// Roles scoped to a single partner organisation (their users.partner_id)
+const PARTNER_SCOPE_ROLES = [ROLES.PARTNER_ADMIN, ROLES.PARTNER_SALES_USER];
+
+module.exports = { ROLES, GLOBAL_SCOPE_ROLES, REGION_SCOPE_ROLES, PARTNER_SCOPE_ROLES };
